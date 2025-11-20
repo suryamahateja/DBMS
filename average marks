@@ -1,0 +1,11 @@
+SELECT 
+    s.RollNo,
+    s.Name,
+    s.Branch,
+    s.Marks
+FROM Student s
+WHERE s.Marks > (
+    SELECT AVG(Marks)
+    FROM Student
+    WHERE Branch = s.Branch
+);
