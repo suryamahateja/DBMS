@@ -1,0 +1,16 @@
+SELECT *
+FROM (
+    SELECT 
+        D.DeptName,
+        SUM(E.Salary) AS DeptTotalSalary
+    FROM Department D
+    JOIN Employee E ON D.DeptID = E.DeptID
+    GROUP BY D.DeptName
+) DeptCalc
+WHERE DeptTotalSalary >
+      (SELECT AVG(TotalSal) 
+       FROM (
+           SELECT SUM(Salary) AS TotalSal
+           FROM Employee
+           GROUP BY DeptID
+       ) X);
