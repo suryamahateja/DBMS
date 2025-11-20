@@ -1,0 +1,6 @@
+CREATE TABLE Student (
+    RollNo INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Branch VARCHAR(20),
+    Marks INT
+);
