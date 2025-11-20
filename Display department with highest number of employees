@@ -1,0 +1,17 @@
+SELECT DeptName, TotalEmployees
+FROM (
+    SELECT D.DeptName, COUNT(E.EmpID) AS TotalEmployees
+    FROM Department D
+    LEFT JOIN Employee E ON D.DeptID = E.DeptID
+    GROUP BY D.DeptName
+) X
+WHERE TotalEmployees =
+(
+    SELECT MAX(CountVal) 
+    FROM (
+        SELECT COUNT(E2.EmpID) AS CountVal
+        FROM Department D2
+        LEFT JOIN Employee E2 ON D2.DeptID = E2.DeptID
+        GROUP BY D2.DeptName
+    ) Y
+);
