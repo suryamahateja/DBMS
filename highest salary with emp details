@@ -1,0 +1,12 @@
+SELECT 
+    e.EmpID, 
+    e.EmpName, 
+    e.Salary, 
+    d.DeptName
+FROM Employee e
+JOIN Department d ON e.DeptID = d.DeptID
+WHERE Salary IN (
+    SELECT MAX(Salary)
+    FROM Employee
+    GROUP BY DeptID
+);
