@@ -1,0 +1,12 @@
+CREATE TABLE Student (
+    RollNo INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Branch VARCHAR(20),
+    Marks INT
+);
+INSERT INTO Student VALUES
+(101, 'Rahul', 'CSE', 85),
+(102, 'Neha', 'ECE', 78),
+(103, 'Arjun', 'CSE', 92),
+(104, 'Meena', 'EEE', 66);
+SELECT * FROM Student;
